@@ -1,9 +1,9 @@
 export default (state, action) => {
   switch (action.type) {
-    case "ADD_ITEM_TO_SHOPLIST":
+    case "ADD_ITEM_TO_WATCHLIST":
       return {
         ...state,
-        shoplist: [action.payload, ...state.shoplist],
+        watchlist: [action.payload, ...state.watchlist],
       };
     default:
       return state;

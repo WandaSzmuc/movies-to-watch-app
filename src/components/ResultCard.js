@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ item }) => {
-  const { addItemToShoplist } = useContext(GlobalContext);
+  const { addItemToWatchlist } = useContext(GlobalContext);
   return (
     <div className="result-card">
       <div className="poster-wrapper">
@@ -15,8 +15,8 @@ export const ResultCard = ({ item }) => {
         </div>
       </div>
       <div className="controls">
-        <button className="btn" onClick={() => addItemToShoplist(item)}>
-          Add to Shoplist
+        <button className="btn" onClick={() => addItemToWatchlist(item)}>
+          Add to watchlist
         </button>
       </div>
     </div>
