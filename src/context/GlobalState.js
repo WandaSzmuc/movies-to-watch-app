@@ -1,12 +1,11 @@
 import React, { createContext, useReducer, useEffect } from "react";
+import Cookies from "universal-cookie";
 import AppReducer from "./AppReducer";
+const cookies = new Cookies();
+
 const initialState = {
-  watchlist: localStorage.getItem("watchlist")
-    ? JSON.parse(localStorage.getItem("watchlist"))
-    : [],
-  watched: localStorage.getItem("watched")
-    ? JSON.parse(localStorage.getItem("watched"))
-    : [],
+  watchlist: cookies.get("watchlist") ? cookies.get("watchlist") : [],
+  watched: cookies.get("watched") ? cookies.get("watched") : [],
 };
 export const GlobalContext = createContext(initialState);
 
@@ -14,8 +13,8 @@ export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
   // actions
   useEffect(() => {
-    localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
-    localStorage.setItem("watched", JSON.stringify(state.watched));
+    cookies.set("watchlist", state.watchlist);
+    cookies.set("watched", state.watched);
   }, [state]);
 
   const addItemToWatchlist = (item) => {
