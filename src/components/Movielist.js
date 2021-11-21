@@ -8,7 +8,7 @@ export const Movielist = () => {
     <div className="movie-page">
       <div className="container">
         <div className="header">
-          <h1>My Watchlist</h1>
+          <h1>Your list of movies to watch:</h1>
         </div>
         {watchlist.length > 0 ? (
           <div className="movie-grid">
@@ -18,7 +18,8 @@ export const Movielist = () => {
           </div>
         ) : (
           <h2 className="no-movies">
-            You have no movies to watch! Please find some new ones!
+            You have no movies to watch!
+            <br /> Please find some new ones!
           </h2>
         )}
       </div>

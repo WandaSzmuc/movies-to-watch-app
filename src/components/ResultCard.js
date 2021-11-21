@@ -9,13 +9,15 @@ export const ResultCard = ({ item }) => {
 
   return (
     <div className="result-card">
-      <div className="poster-wrapper">
-        <img src={`${item.Poster}`}></img>
-      </div>
-      <div className="info">
-        <div className="header">
-          <h1 className="title"> {item.Title}</h1>
-          <h4 className="description">{item.Year}</h4>
+      <div className="poster-descripion">
+        <div className="poster-wrapper">
+          <img src={`${item.Poster}`}></img>
+        </div>
+        <div className="info">
+          <div className="header">
+            <h1 className="title"> {item.Title}</h1>
+            <h4 className="description">{item.Year}</h4>
+          </div>
         </div>
       </div>
       <div className="controls">

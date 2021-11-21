@@ -4,7 +4,6 @@ import Pagination from "./Pagination";
 export const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [units, setUnit] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const onChange = (e) => {

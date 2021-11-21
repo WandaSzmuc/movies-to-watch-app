@@ -6,17 +6,17 @@ export const Header = () => {
       <div className="container">
         <div className="inner-content">
           <div className="brand">
-            <Link to="/">Movie list</Link>
+            <Link to="/">My movies</Link>
           </div>
           <ul className="nav-links">
             <li>
-              <Link to="/">Movie List</Link>
+              <Link to="/">Movies to watch</Link>
             </li>
             <li>
               <Link to="/watched">Watched</Link>
             </li>
             <li>
-              <Link to="/add">+ Add</Link>
+              <Link to="/add">Add</Link>
             </li>
           </ul>
         </div>
