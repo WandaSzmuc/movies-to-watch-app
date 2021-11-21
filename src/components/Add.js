@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
+import Pagination from "./Pagination";
 export const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-
+  const [units, setUnit] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
   const onChange = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
@@ -19,6 +22,10 @@ export const Add = () => {
         }
       });
   };
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = results.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className="add-page">
       <div className="container">
@@ -33,7 +40,7 @@ export const Add = () => {
           </div>
           {results.length > 0 ? (
             <ul className="results">
-              {results.map((item) => (
+              {currentPosts.map((item) => (
                 <li key={item.imdbID}>
                   <ResultCard item={item} />
                 </li>
@@ -44,6 +51,11 @@ export const Add = () => {
           )}
         </div>
       </div>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={results.length}
+        paginate={paginate}
+      />
     </div>
   );
 };
